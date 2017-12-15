@@ -1,0 +1,29 @@
+
+import random                  #On declare la fonction random
+import replit                  #On declare la fonction replit
+liste_cartes = ["C1","CR","CD","CV","CX","C9","C8","C7","K1","KR","KD","KV","KX","K9","K8","K7","P1","PR","PD","PV","PX","P9","P8","P7","T1","TR","TD","TV","TX","T9","T8","T7"]
+random.shuffle(liste_cartes)    #On melange la liste
+x = 0                           #On chosit rang de la carte
+juste = 0                       #On compte les points
+xcartes = int(input("Choisissez le nombre de cartes pour lequel vous voulez jouer (de 1 a 32):")) - 1
+                                #On decide le nombre de cartes a afficher
+while x <= xcartes:             #On compte le nombre de cartes donnees
+  inp = str(input())            #On fait avancer le programme lorsue l'utilisateur appuye sur "enter"
+  if inp == "":
+    print(liste_cartes[x])      #On affiche la carte suivant dans la liste melangee
+    replit.clear()              #On enleve tous ce qu'il y a sur l'ecran apres boucle
+    x = x+1                     #Lignes 25 a 27 font marcher replit.clear()
+pause = str(input())
+replit.clear()
+print("")
+x = 0
+while x <= xcartes:              #On definit la boucle qui montre le nombre de cartes choisies
+  print("Carte du rang" , x + 1)
+  resultat = str(input())
+  if resultat == liste_cartes[x]: #Si la valeure choisie correspond afficher "bonne reponse"
+    print("Ta reponse est bonne")
+    juste = juste + 1
+  else:
+    print("La reponse juste est " , liste_cartes[x]) #Si autre faux
+  x = x+1
+print("Tu as eu " , juste , "reponses justes sur " , xcartes + 1 , "cartes") #Donner le nombre de resultats justes
